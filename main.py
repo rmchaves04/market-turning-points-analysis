@@ -2,6 +2,7 @@ import config
 import pandas as pd
 import os
 from data_processing import get_data, count_turning_points
+from export import export_results
 
 csv_files = [f for f in os.listdir(config.folder_name) if f.endswith('.csv')]
 results = {}
@@ -15,3 +16,7 @@ average_turning_points_count = round(df['Turning Points'].mean(), 2)
 
 print(df)
 print(f'Avg turning points count: {average_turning_points_count}')
+
+ans = input('Would you like to export these results to a spreadsheet? [Y/N]')
+if ans.lower() == 'y':
+    export_results(df, average_turning_points_count)
