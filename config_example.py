@@ -1,11 +1,15 @@
 # Example configuration file. Create your own config.py using your values!
 #-------------------------------------------------------------------------
-#Relative path
-folder_name = 'Data/'
+# The data source can either be 'yahoo' or 'csv'
+data_source = 'yahoo'
+
+# Yahoo import settings. Please keep the first line of the file as 'Tickers'. The markets.txt file contains an example with a couple of markets.
+yahoo_ticker_list = 'markets.txt'
 
 # CSV import settings
+folder_name = 'Data/'
 header = None 
-names=['Date', 'Close', 'Volume']
+names=['Date', 'Open', 'High', 'Low', 'Close']
 price_column = 'Close'
 date_column = 'Date'
 
