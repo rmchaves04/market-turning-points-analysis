@@ -2,7 +2,7 @@ import config
 import pandas as pd
 import os
 from data_processing import process_yahoo_data, process_csv_data
-from export import export_results
+from export import export_results, plot_chart
 
 if config.data_source == 'yahoo':
     tickers = pd.read_csv(config.yahoo_ticker_list)['Tickers'].tolist()
@@ -22,3 +22,5 @@ print(f'Avg turning points count: {average_turning_points_count}')
 ans = input('Would you like to export these results to a spreadsheet? [Y/N]')
 if ans.lower() == 'y':
     export_results(df, average_turning_points_count)
+
+plot_chart(df)

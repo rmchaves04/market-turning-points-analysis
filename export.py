@@ -1,7 +1,17 @@
 import config
+import matplotlib.pyplot as plt
 from openpyxl import Workbook
 from openpyxl.utils.dataframe import dataframe_to_rows
 
+def plot_chart(df):
+    df.plot(kind='bar', x='Ticker', y='Turning Points', legend=False)
+
+    plt.title('Number of Turning Points per Ticker')
+    plt.xlabel('Ticker')
+    plt.ylabel('Turning Points')
+    plt.subplots_adjust(bottom=0.3)
+
+    plt.show()
 
 def export_results(df, average_turning_points_count):
     wb = Workbook()
